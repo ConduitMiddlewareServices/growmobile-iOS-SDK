@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Growmobile-iOS-SDK"
-  s.version      = "0.0.1"
+  s.version      = "1.0.0"
   s.summary      = "iOS SDK for integrating the Growmobile platform into your iOS applications"
 
   s.description  = <<-DESC

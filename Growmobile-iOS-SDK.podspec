@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Growmobile-iOS-SDK"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "iOS SDK for integrating the Growmobile platform into your iOS applications"
 
   s.description  = <<-DESC
@@ -72,7 +72,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/ConduitMiddlewareServices/growmobile-iOS-SDK.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/ConduitMiddlewareServices/growmobile-iOS-SDK.git", :tag => "1.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -127,6 +127,6 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
-  s.vendored_libraries = 'Growmobile/libTouchBeamSDKLib.a'
+  s.vendored_libraries = 'Growmobile/libTouchBeamSDK.a'
 
 end

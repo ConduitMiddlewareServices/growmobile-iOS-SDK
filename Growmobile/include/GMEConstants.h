@@ -7,6 +7,8 @@
 
 static NSString* const kGmeEventUserDataKey = @"user_data";
 static NSString* const kGmeDeepLinkKey = @"deep_link";
+static NSString* const kGmeMessageKey = @"message";
+static NSString* const kGmeCampaignIdKey = @"campaign_id";
 static NSString* const kGmeInAppMessageRootKey = @"iam";
 static NSString* const kGmeInAppMessageInboxTriggerKey = @"inbox_trigger";
 static NSString* const kGmeInAppMessageId = @"iam_id";

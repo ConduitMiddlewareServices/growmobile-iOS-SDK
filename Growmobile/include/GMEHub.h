@@ -68,12 +68,14 @@ typedef enum : NSUInteger {
 //required to cal once to start up the GMEHub shared instance
 - (GME_Result)startup:(NSString*)apiKey;
 
+//optional
 - (void)setCustomerUserId:(NSString*)userId;
 - (void)setCustomerDeviceId:(NSString*)deviceId;
 - (void)setApplicationVersionType:(NSString*)type;
-
+- (void)setIDFA:(NSString*)idfa;
 - (void)registerEmail:(NSString*)emailAddress;
-
+//use this method to set the default font for in app messages text (title, body and buttons)
+- (void)setFont:(NSString*)font;
 //for sending a custom event through the SDK
 - (GME_Result)reportCustomEvent:(GMECustomEvent*)event;
 
@@ -85,9 +87,6 @@ typedef enum : NSUInteger {
 
 //returns GME sdk version
 - (NSString*)sdkVersion;
-
-//returns the current GME device id
-- (NSString*)deviceId;
 
 //return Apple Push Notification Services token
 - (NSString*)apnsToken;

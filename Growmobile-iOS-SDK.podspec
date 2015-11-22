@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Growmobile-iOS-SDK"
-  s.version      = "1.0.9.421"
+  s.version      = "1.0.11.431"
   s.summary      = "iOS SDK for integrating the Growmobile platform into your iOS applications"
 
   s.description  = <<-DESC
@@ -72,7 +72,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/ConduitMiddlewareServices/growmobile-iOS-SDK.git", :tag => "1.0.9.421" }
+  s.source       = { :git => "https://github.com/ConduitMiddlewareServices/growmobile-iOS-SDK.git", :tag => "1.0.11.431" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

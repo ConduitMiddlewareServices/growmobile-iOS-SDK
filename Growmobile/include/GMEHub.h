@@ -11,6 +11,7 @@
 
 typedef enum : NSUInteger {
     GME_Success,
+    GME_ErrorNoCustomerUserId, //returned by setUserData:data if customer user id is not set
     GME_IntializationInProgress, //returned by the startup method if initialization process is currently in progress
     GME_ErrorNotInitialized, //returned by various methods when trying to use the sdk without first initializing it
     GME_EventStored, //internal return value
@@ -78,6 +79,8 @@ typedef enum : NSUInteger {
 - (void)setFont:(NSString*)font;
 //for sending a custom event through the SDK
 - (GME_Result)reportCustomEvent:(GMECustomEvent*)event;
+//for sending any additional data related to this user
+- (GME_Result)setUserData:(NSDictionary*)data;
 
 //for sending an in app purchase event
 - (GME_Result)reportInAppPurchaseEvent:(GMEInAppPurchaseEvent*)event;
@@ -117,6 +120,8 @@ typedef enum : NSUInteger {
 
 //clears experiment, variant and campaign ids
 - (void)clearPushParams;
+
+- (NSTimeInterval)currentSessionDuration;
 
 
 @end

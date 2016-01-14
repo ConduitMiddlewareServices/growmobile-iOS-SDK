@@ -128,6 +128,6 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
   s.vendored_libraries = 'Growmobile/libGrowmobile-engage.a'
-  s.vendored_frameworks = 'SystemConfiguration.framework', 'CoreTelephony.framework', 'Security.framework'
+  s.ios.vendored_framework = 'SystemConfiguration.framework', 'CoreTelephony.framework', 'Security.framework'
 
 end

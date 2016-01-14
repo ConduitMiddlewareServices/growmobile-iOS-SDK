@@ -110,9 +110,9 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+s.frameworks = "SystemConfiguration", "CoreTelephony", "Security"
 
-  # s.library   = "iconv"
+   s.library   = "libicucore"
   # s.libraries = "iconv", "xml2"
 
 

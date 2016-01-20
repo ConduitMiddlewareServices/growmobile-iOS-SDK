@@ -1,8 +1,8 @@
 //
 //  GMEInAppMessage.h
 //
-//  Created by tal shahar on 1/15/15.
-//  Copyright (c) 2015 tal shahar. All rights reserved.
+// Created by Growmobile
+//  Copyright (c) 2016 Growmobile. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

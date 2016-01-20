@@ -1,8 +1,8 @@
 //
 //  GMEHub.h
 //
-//  Created by tal shahar on 10/26/14.
-//  Copyright (c) 2014 tal shahar. All rights reserved.
+// Created by Growmobile
+//  Copyright (c) 2016 Growmobile. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -101,6 +101,11 @@ typedef enum : NSUInteger {
 
 //called to report app sent to backgroud
 - (void)backgroundEvent;
+
+//adsmart
+- (NSDictionary*)shouldShowAd:(NSString*)placement adTypes:(NSArray*)adTypes;
+- (void)setAdSmartsLogic:(NSDictionary*)logic;
+- (void)reportAdImpressionEventWithPlacement:(NSString*)placement andAdType:(NSString*)ad_type;
 
 ////////////////////////////////////////////////
 //for internal use - called only from within the SDK

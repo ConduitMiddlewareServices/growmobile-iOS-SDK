@@ -1,8 +1,8 @@
 //
 //  GMEHubDelegate
 //
-//  Created by tal shahar on 12/3/14.
-//  Copyright (c) 2014 tal shahar. All rights reserved.
+// Created by Growmobile
+//  Copyright (c) 2016 Growmobile. All rights reserved.
 //
 
 typedef enum : NSUInteger {

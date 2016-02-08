@@ -21,9 +21,6 @@ typedef enum : NSUInteger {
 //async report of the result of the SDK initialization
 - (void)didFinishInitializationWithResult:(BOOL)success;
 
-//async report of the result of email registration
-- (void)didFinishEmailRegistrationWithResult:(BOOL)success;
-
 //implement this to be notified when the SDK delete an in app message from the inbox to make room for a new one
 - (void)didRemoveInboxMessage:(NSString*)messageId;
 

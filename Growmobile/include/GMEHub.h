@@ -11,6 +11,7 @@
 
 typedef enum : NSUInteger {
     GME_Success,
+    GME_Error, //General error
     GME_ErrorNoCustomerUserId, //returned by setUserData:data if customer user id is not set
     GME_IntializationInProgress, //returned by the startup method if initialization process is currently in progress
     GME_ErrorNotInitialized, //returned by various methods when trying to use the sdk without first initializing it
@@ -74,7 +75,6 @@ typedef enum : NSUInteger {
 - (void)setCustomerDeviceId:(NSString*)deviceId;
 - (void)setApplicationVersionType:(NSString*)type;
 - (void)setIDFA:(NSString*)idfa;
-- (void)registerEmail:(NSString*)emailAddress;
 //use this method to set the default font for in app messages text (title, body and buttons)
 - (void)setFont:(NSString*)font;
 //for sending a custom event through the SDK
@@ -104,9 +104,9 @@ typedef enum : NSUInteger {
 
 //adsmart
 - (NSDictionary*)shouldShowAd:(NSString*)placement adTypes:(NSArray*)adTypes;
-- (void)setAdSmartsLogic:(NSDictionary*)logic;
+- (GME_Result)setAdSmartsLogic:(NSDictionary*)logic;
 - (void)reportAdImpressionEventWithPlacement:(NSString*)placement andAdType:(NSString*)ad_type;
-
+- (BOOL)isAdSmartsLogicExist;
 ////////////////////////////////////////////////
 //for internal use - called only from within the SDK
 ////////////////////////////////////////////////

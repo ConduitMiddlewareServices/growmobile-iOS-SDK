@@ -91,10 +91,19 @@ typedef enum : NSUInteger {
 //returns GME sdk version
 - (NSString*)sdkVersion;
 
-//return Apple Push Notification Services token
+//return Apple Push Notification Service token
 - (NSString*)apnsToken;
 
-//the following 2 methods need not be called unless the sdk is being hosted by an iOS extension, such as a keyboard. otherwise they are handled automatically by the SDK
+//adsmart
+- (NSDictionary*)shouldShowAd:(NSString*)placement adTypes:(NSArray*)adTypes;
+- (GME_Result)setAdSmartsLogic:(NSDictionary*)logic;
+- (void)reportAdImpressionEventWithPlacement:(NSString*)placement andAdType:(NSString*)ad_type;
+- (BOOL)isAdSmartsLogicExist;
+
+/*
+ -- LIFECYCLE EVENTS
+ -- These APIs will be called by your AppDelegate incase you did not use the GME Auto Setup
+ */
 
 //called to report app coming into foreground
 - (void)foregroundEvent;
@@ -102,11 +111,10 @@ typedef enum : NSUInteger {
 //called to report app sent to backgroud
 - (void)backgroundEvent;
 
-//adsmart
-- (NSDictionary*)shouldShowAd:(NSString*)placement adTypes:(NSArray*)adTypes;
-- (GME_Result)setAdSmartsLogic:(NSDictionary*)logic;
-- (void)reportAdImpressionEventWithPlacement:(NSString*)placement andAdType:(NSString*)ad_type;
-- (BOOL)isAdSmartsLogicExist;
+//
+-(void)applicationWillResignActive;
+-(void)applicationWillTerminate;
+-(void)applicationDidEnterBackground;
 ////////////////////////////////////////////////
 //for internal use - called only from within the SDK
 ////////////////////////////////////////////////

@@ -9,6 +9,10 @@
 #import "GMEConstants.h"
 #import "GMEHubDelegate.h"
 
+/*********************************************************************************************************/
+// Return types
+/*********************************************************************************************************/
+
 typedef enum : NSUInteger {
     GME_Success,
     GME_Error, //General error
@@ -24,8 +28,7 @@ typedef enum : NSUInteger {
     GME_MessageNotFound //returned by showMessage when the messageId input param does not correspond to a valid inbox message
 } GME_Result;
 
-//cr: things that are not called by the developer should not be exposed
-
+/*********************************************************************************************************/
 
 @interface GMECustomEvent : NSObject
 
@@ -38,6 +41,8 @@ typedef enum : NSUInteger {
 @property NSDictionary* attributes;
 
 @end
+
+/*********************************************************************************************************/
 
 @interface GMEInAppPurchaseEvent : NSObject
 
@@ -54,88 +59,99 @@ typedef enum : NSUInteger {
 
 @end
 
-
-//this singleton is the main interface into the GME sdk
+/*********************************************************************************************************/
+// This singleton is the main interface into the GME sdk
+/*********************************************************************************************************/
 
 @interface GMEHub : NSObject
 @property (nonatomic,weak) id<GMEHubDelegate> delegate;
 
 + (GMEHub *)sharedHub;
 
-//cr: figure out a way to hide form the developer methods he is not supposed to call
-////////////////////////////////////////////////
-//for external use by the integrator of the SDK
-////////////////////////////////////////////////
+/*********************************************************************************************************/
+// Required to call once to start up the GMEHub shared instance
+/*********************************************************************************************************/
 
-//required to cal once to start up the GMEHub shared instance
 - (GME_Result)startup:(NSString*)apiKey;
 
-//optional
+/*********************************************************************************************************/
+// LIFECYCLE EVENTS
+// These APIs will be called by your AppDelegate incase you did not use the GME Auto Setup
+/*********************************************************************************************************/
+
+- (void)applicationWillEnterForeground;
+- (void)applicationWillResignActive;
+- (void)applicationWillTerminate;
+- (void)applicationDidEnterBackground;
+- (void)didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken;
+- (void)didFailToRegisterForRemoteNotificationsWithError;
+- (void)didReceiveRemoteNotification:(NSDictionary *)userInfo;
+
+/*********************************************************************************************************/
+// Optional
+/*********************************************************************************************************/
+
 - (void)setCustomerUserId:(NSString*)userId;
 - (void)setCustomerDeviceId:(NSString*)deviceId;
 - (void)setApplicationVersionType:(NSString*)type;
 - (void)setIDFA:(NSString*)idfa;
-//use this method to set the default font for in app messages text (title, body and buttons)
+
+/*********************************************************************************************************/
+// Use this method to set the default font for in app messages text (title, body and buttons)
+/*********************************************************************************************************/
+
 - (void)setFont:(NSString*)font;
-//for sending a custom event through the SDK
-- (GME_Result)reportCustomEvent:(GMECustomEvent*)event;
-//for sending any additional data related to this user
+
+/*********************************************************************************************************/
+// Sends any additional data related to this user
+/*********************************************************************************************************/
+
 - (GME_Result)setUserData:(NSDictionary*)data;
 
-//for sending an in app purchase event
+/*********************************************************************************************************/
+// Sends a custom event through the SDK
+/*********************************************************************************************************/
+
+- (GME_Result)reportCustomEvent:(GMECustomEvent*)event;
+
+/*********************************************************************************************************/
+// Sends an in app purchase event
+/*********************************************************************************************************/
+
 - (GME_Result)reportInAppPurchaseEvent:(GMEInAppPurchaseEvent*)event;
 
-//request  to display an in app message with a given id
+/*********************************************************************************************************/
+// request to display an in app message with a given id
+/*********************************************************************************************************/
+
 - (GME_Result)showMessage:(NSString*)messageId;
 
-//returns GME sdk version
+/*********************************************************************************************************/
+// returns GME sdk version
+/*********************************************************************************************************/
+
 - (NSString*)sdkVersion;
 
-//return Apple Push Notification Service token
+/*********************************************************************************************************/
+// Returns Apple Push Notification Service token
+/*********************************************************************************************************/
+
 - (NSString*)apnsToken;
 
-//adsmart
+/*********************************************************************************************************/
+// AdSmarts APIs
+/*********************************************************************************************************/
+
 - (NSDictionary*)shouldShowAd:(NSString*)placement adTypes:(NSArray*)adTypes;
 - (GME_Result)setAdSmartsLogic:(NSDictionary*)logic;
 - (void)reportAdImpressionEventWithPlacement:(NSString*)placement andAdType:(NSString*)ad_type;
 - (BOOL)isAdSmartsLogicExist;
 
-/*
- -- LIFECYCLE EVENTS
- -- These APIs will be called by your AppDelegate incase you did not use the GME Auto Setup
- */
-
-//called to report app coming into foreground
-- (void)foregroundEvent;
-
-//called to report app sent to backgroud
-- (void)backgroundEvent;
-
-//
--(void)applicationWillResignActive;
--(void)applicationWillTerminate;
--(void)applicationDidEnterBackground;
-////////////////////////////////////////////////
-//for internal use - called only from within the SDK
-////////////////////////////////////////////////
-
-//called to report app launch
-- (void)launchEvent;
-
-//called to report app has been terminated
-- (void)terminateEvent;
-
-//called when a push token is received
-- (void)pushTokenReceived:(NSData*)token;
-
-//called
-- (void)pushNotificationReceived:(NSDictionary*)userInfo;
-
-//clears experiment, variant and campaign ids
-- (void)clearPushParams;
+/*********************************************************************************************************/
 
 - (NSTimeInterval)currentSessionDuration;
 
+/*********************************************************************************************************/
 
 @end
 

@@ -16,7 +16,6 @@
 typedef enum : NSUInteger {
     GME_Success,
     GME_Error, //General error
-    GME_ErrorNoCustomerUserId, //returned by setUserData:data if customer user id is not set
     GME_IntializationInProgress, //returned by the startup method if initialization process is currently in progress
     GME_ErrorNotInitialized, //returned by various methods when trying to use the sdk without first initializing it
     GME_EventStored, //internal return value

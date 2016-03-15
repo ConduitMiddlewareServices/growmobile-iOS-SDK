@@ -64,6 +64,7 @@ typedef enum : NSUInteger {
 
 @interface GMEHub : NSObject
 @property (nonatomic,weak) id<GMEHubDelegate> delegate;
+@property (nonatomic, retain) NSDate *timee;
 
 + (GMEHub *)sharedHub;
 
@@ -78,6 +79,7 @@ typedef enum : NSUInteger {
 // These APIs will be called by your AppDelegate incase you did not use the GME Auto Setup
 /*********************************************************************************************************/
 
+- (void)applicatioDidFinishLaunchingWithOptions;
 - (void)applicationWillEnterForeground;
 - (void)applicationWillResignActive;
 - (void)applicationWillTerminate;

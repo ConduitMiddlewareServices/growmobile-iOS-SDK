@@ -65,7 +65,7 @@ typedef enum : NSUInteger {
 @interface GMEHub : NSObject
 @property (nonatomic,weak) id<GMEHubDelegate> delegate;
 @property (nonatomic, retain) NSDate *timee;
-
+@property (nonatomic,weak) NSString *deviceId;
 + (GMEHub *)sharedHub;
 
 /*********************************************************************************************************/

@@ -64,7 +64,6 @@ typedef enum : NSUInteger {
 
 @interface GMEHub : NSObject
 @property (nonatomic,weak) id<GMEHubDelegate> delegate;
-@property (nonatomic, retain) NSDate *timee;
 @property (nonatomic,weak) NSString *deviceId;
 + (GMEHub *)sharedHub;
 
@@ -153,7 +152,11 @@ typedef enum : NSUInteger {
 - (NSTimeInterval)currentSessionDuration;
 
 /*********************************************************************************************************/
-
+//Logging
+/*********************************************************************************************************/
+- (void)setLogging:(BOOL)enable;
+void GME_Log(NSString *format,...);
+/*********************************************************************************************************/
 @end
 
 
